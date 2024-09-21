@@ -1,18 +1,11 @@
-
-
-import { useRouter } from "next/navigation";
 import Navbardark from "@/components/ui/navbarblack";
 import React from "react";
 
 interface LayoutProps {
   children: React.ReactNode;
-  title?: string;
 }
 
-
-
-const Layout: React.FC<LayoutProps> = ({ children }) => {
- 
+export default function Layout({ children }: LayoutProps) {
   return (
     <div>
       <main>
@@ -21,6 +14,4 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </main>
     </div>
   );
-};
-
-export default Layout;
+}
