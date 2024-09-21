@@ -254,9 +254,9 @@ const CourseInterface = ({ params }: { params: { id: string } }) => {
   const handleEditClick = (type: "module" | "resource", id: string) => {
     setEditingItem({ type, id });
     if (type === "module") {
-      const module = course?.modules.find((m) => m.id === id);
-      if (module) {
-        moduleForm.reset({ title: module.title });
+      const module1 = course?.modules.find((m) => m.id === id);
+      if (module1) {
+        moduleForm.reset({ title: module1.title });
       }
       setIsModuleDialogOpen(true);
     } else {

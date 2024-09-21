@@ -107,14 +107,14 @@ async function handleAddModule(body: AddModuleBody, userId: string): Promise<Nex
     return NextResponse.json({ message: 'Course not found or unauthorized' }, { status: 404 });
   }
 
-  const module = await prisma.module.create({
+  const module1 = await prisma.module.create({
     data: {
       title,
       courseId,
     },
   });
 
-  return NextResponse.json(module, { status: 201 });
+  return NextResponse.json(module1, { status: 201 });
 }
 
 async function handleAddResource(body: AddResourceBody, userId: string): Promise<NextResponse> {
@@ -124,7 +124,7 @@ async function handleAddResource(body: AddResourceBody, userId: string): Promise
     return NextResponse.json({ message: 'Invalid input' }, { status: 400 });
   }
 
-  const module = await prisma.module.findUnique({
+  const module1 = await prisma.module.findUnique({
     where: {
       id: moduleId,
     },
@@ -133,7 +133,7 @@ async function handleAddResource(body: AddResourceBody, userId: string): Promise
     },
   });
 
-  if (!module || module.course.userId !== userId) {
+  if (!module1 || module1.course.userId !== userId) {
     return NextResponse.json({ message: 'Module not found or unauthorized' }, { status: 404 });
   }
 
@@ -177,7 +177,7 @@ async function handleUpdateModule(body: UpdateModuleBody, userId: string): Promi
     return NextResponse.json({ message: 'Module ID is required' }, { status: 400 });
   }
 
-  const module = await prisma.module.findUnique({
+  const module1 = await prisma.module.findUnique({
     where: {
       id: moduleId,
     },
@@ -186,7 +186,7 @@ async function handleUpdateModule(body: UpdateModuleBody, userId: string): Promi
     },
   });
 
-  if (!module || module.course.userId !== userId) {
+  if (!module1 || module1.course.userId !== userId) {
     return NextResponse.json({ message: 'Module not found or unauthorized' }, { status: 404 });
   }
 
@@ -195,7 +195,7 @@ async function handleUpdateModule(body: UpdateModuleBody, userId: string): Promi
       id: moduleId,
     },
     data: {
-      title: title || module.title,
+      title: title || module1.title,
     },
   });
 

@@ -88,7 +88,7 @@ const AnimatedQuote = () => {
         }`}
       >
         <p className="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-800 mb-2">
-          "{quotes[index].text}"
+          &ldquo;{quotes[index].text}&rdquo;
         </p>
         <p className="text-sm md:text-base text-gray-600 italic">
           - {quotes[index].author}
